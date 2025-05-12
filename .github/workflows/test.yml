@@ -34,11 +34,7 @@ jobs:
         run: npm install
       - name: Run tests
         env:
-          DB_HOST: localhost
-          DB_PORT: 5432
-          DB_USERNAME: testuser
-          DB_PASSWORD: testpass
-          DB_NAME: testdb
+          DATABASE_URL: "postgresql://testuser:testpass@localhost:5432/testdb" 
         run: |
           if [[ "${{ github.ref_name }}" == "main" ]]; then
             npm run test:main
